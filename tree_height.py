@@ -1,20 +1,29 @@
 # python3
+from asyncore import read
 from collections import defaultdict, deque
 import sys
 import threading
 import numpy
+
+#конструктор
+
+
+count=" "
+i = 0
+ 
 class Node:
-    def __init__(self, data):
+    def __init__(self, data, dataElement):
+        self.dataElement = dataElement
         self.data = data
         self.child = []
 
-def newNode(key):
-    temp = Node(key)
+def newNode(key,dataElement):
+    temp = Node(key,dataElement)
     return temp
 
 def insertNode(Node,key,parentKey):
     if Node.data == parentKey:
-        child = newNode(key)
+        child = newNode(key,parentKey)
         Node.child.append(child)
         return 0
     else:
@@ -37,27 +46,26 @@ def compute_height(n, Node):
         j = j + 1
     return max_height
 
-def main():
-    # implement input form keyboard and from files
-
-    count = input() 
+def prtinTree(root, level = 0):
     
-    elemList = [int(count)]
-    i=0
-    while i<int(count):
-        element = input()
-        elemList.append(int(element))
-        i=i+1
-    elemList.pop(0)
+    print("level of range",level)
+    print( root.dataElement)
+    for child in root.child:
+        prtinTree(child, level+1)
 
+
+def mehanism (elemList=[]):
+
+    len(elemList)
+    Node = newNode(-2,-2)
     i = 0
-    root = newNode(-2)
     while i < len(elemList):
         if elemList[i] == -1:
-            root.data = i 
+            Node.data = i 
+            Node.dataElement = -1
             elemList[i] = -2
-        elif elemList[i] > -1 and root.data != -2:
-            if insertNode(root,i,elemList[i]) == 0:
+        elif int(elemList[i]) > -1 and Node.data != -2:
+            if insertNode(Node,i,elemList[i]) == 0:
                 elemList[i] = -2
         else:
             pass
@@ -68,12 +76,72 @@ def main():
                 if elemList[j] > -2:
                     i = 0
                 j = j + 1    
-    
-    maxHeight = compute_height(1,root)
+    maxHeight=compute_height(1,Node)
     print(maxHeight)
+    #
+    # 
+    # prtinTree(Node)
 
+
+
+def  main():
+
+    choice = input()
+    if choice == "I":
+        count = input() 
+        elements = input()
+        elemList = []
+        elemList = elements.split()
+        elemListInt=[]
+        for i in elemList:
+           elemListInt.append(int(i))
+        if int(count)== len(elemListInt):   
+            #print(elemListInt)
+            mehanism(elemListInt)
+        else:
+            print("ERROR")
+            pass
+        
+        #prtinTree("node is",mehanism(elemListInt))
+    elif choice == "F":
+
+       # print("F")
+        nameOfFille = input()
+       
+        for i in nameOfFille:
+            if i == "a":
+                print("ERROR")
+                return 0
+            
+              
+        url = r"C:\\Users\\ReFoxiK\\Downloads\\tree-height-from-empty-AleksandrsVasilevskis171RDB362-6b1bb214ea15438935e4d0b4b9610301ff877492\\tree-height-from-empty-AleksandrsVasilevskis171RDB362-6b1bb214ea15438935e4d0b4b9610301ff877492\\test\\"
+        realUrl = url + nameOfFille
+        #print("yyy",realUrl)
+        f = open(realUrl)        
+
+       # print("2")
+        readFileArray = f.read().splitlines()
+        elementCount=int(readFileArray[0])
+        #print(readFileArray)
+               #print(ele)
+        #print(elementCount)
+        arrList = readFileArray[1]
+
+        arrList = arrList.split()
+       # print (arrList)
+        arrListInt = []
+        for i in arrList:
+            arrListInt.append(int(i)) 
+        ##print (arrListInt)
+        mehanism(arrListInt)
+
+               
+    else:
+        print("ERROR")
+        pass        
+     
+    #implement input form keyboard and from files
     
-    #elemList=input()
     
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
@@ -81,18 +149,35 @@ def main():
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
-    
-    pass
-    #return line
+  #  return elemList
+    #pass
+   
+
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
 # of bigger stack, we have to launch the computation in a new thread.
 
 sys.setrecursionlimit(10**7)  # max depth of recursion
-#threading.stack_size(2**27)   # new thread will get stack of such size
-#threading.Thread(target=main).start()
+threading.stack_size(2**27)   # new thread will get stack of such size
+threading.Thread(target=main).start
+
+
+
+
+
+#print(count)
 main()
+
+#print(count)
+
+#mehanism(elemList)
+#root = mehanism(elemList)
+    
+#maxHeight = compute_height(1,root)
+#print(maxHeight)
+#prtinTree(root)
+
 
 
 # print(numpy.array([1,2,3]))
