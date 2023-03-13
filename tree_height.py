@@ -114,7 +114,7 @@ def  main():
                 return 0
             
               
-        url = r"test\\"
+        url = r"test/"
         realUrl = url + nameOfFille
         #print("yyy",realUrl)
         f = open(realUrl)        
