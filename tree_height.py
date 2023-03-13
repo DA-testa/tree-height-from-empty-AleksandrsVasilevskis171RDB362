@@ -87,7 +87,7 @@ def mehanism (elemList=[]):
 def  main():
 
     choice = input()
-    if choice == "I":
+    if "I" in choice:
         count = input() 
         elements = input()
         elemList = []
@@ -103,7 +103,7 @@ def  main():
             pass
         
         #prtinTree("node is",mehanism(elemListInt))
-    elif choice == "F":
+    elif "F" in choice:
 
        # print("F")
         nameOfFille = input()
