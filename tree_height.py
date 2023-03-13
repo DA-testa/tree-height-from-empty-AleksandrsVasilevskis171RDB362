@@ -1,5 +1,5 @@
 # python3
-from asyncore import read
+
 from collections import defaultdict, deque
 import sys
 import threading
@@ -114,7 +114,7 @@ def  main():
                 return 0
             
               
-        url = r"test\\"
+        url = r"C:\\Users\\ReFoxiK\\Downloads\\tree-height-from-empty-AleksandrsVasilevskis171RDB362-6b1bb214ea15438935e4d0b4b9610301ff877492\\tree-height-from-empty-AleksandrsVasilevskis171RDB362-6b1bb214ea15438935e4d0b4b9610301ff877492\\test\\"
         realUrl = url + nameOfFille
         #print("yyy",realUrl)
         f = open(realUrl)        
@@ -160,14 +160,15 @@ def  main():
 
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
-threading.Thread(target=main).start
+t=threading.Thread(target=main)
+t.start()
 
 
 
 
 
 #print(count)
-main()
+#main()
 
 #print(count)
 
