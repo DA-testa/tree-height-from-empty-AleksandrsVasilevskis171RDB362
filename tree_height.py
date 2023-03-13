@@ -114,7 +114,7 @@ def  main():
                 return 0
             
               
-        url = r"C:\\Users\\ReFoxiK\\Downloads\\tree-height-from-empty-AleksandrsVasilevskis171RDB362-6b1bb214ea15438935e4d0b4b9610301ff877492\\tree-height-from-empty-AleksandrsVasilevskis171RDB362-6b1bb214ea15438935e4d0b4b9610301ff877492\\test\\"
+        url = r"test\\"
         realUrl = url + nameOfFille
         #print("yyy",realUrl)
         f = open(realUrl)        
